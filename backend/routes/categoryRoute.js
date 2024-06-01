@@ -8,6 +8,6 @@ const { createCategory, getCategories, deleteCategory } = require("../controller
 router.post("/createCategory", protect, adminOnly, createCategory);
 router.get("/getCategories", protect, adminOnly, getCategories);
 
-router.get("/:slug", protect, adminOnly, deleteCategory);
+router.delete("/:slug", protect, adminOnly, deleteCategory);
 
 module.exports = router;

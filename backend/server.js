@@ -18,7 +18,7 @@ app.use(cookieParser());
 app.use(express.urlencoded({ extended: false}));
 app.use(
     cors({
-        origin: ["http://localhost:9000" , "https://K-BEAUTY.vercel.app"], // ou juste localhost si ca ne marche pas
+        origin: ["http://localhost:9000"],
         credentials: true,
     })
 );
