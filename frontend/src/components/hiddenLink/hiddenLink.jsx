@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 
-function ShowOnLogin({ children}) {
+function ShowOnLogin({ children }) {
     const { isLoggedIn } = useSelector((state) => state.auth);
 
     if(isLoggedIn) {

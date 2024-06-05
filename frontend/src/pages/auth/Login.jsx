@@ -15,7 +15,6 @@ import { validateEmail } from "../../utils";
 import { useDispatch, useSelector } from "react-redux";
 import { RESET_AUTH, login } from "../../redux/features/auth/authSlice";
 import Loader from "../../components/loader/Loader";
-// import Loader from "../../components/loader/Loader";
 // import { useSelector } from "react-redux";
 // import { selectPreviousURL } from "../../redux/slice/cartSlice";
 

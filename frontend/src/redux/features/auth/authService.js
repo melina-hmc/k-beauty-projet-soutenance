@@ -1,7 +1,6 @@
 import axios from "axios";
 
-// const BACKEND_URL = process.env.REACT_APP_BACKEND_URL; j'ai mis ce qu'il y'a en dessous car il marche pas, a toi de revenir dessus plus tard
-const BACKEND_URL = "http://localhost:9001";
+const BACKEND_URL = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 export const API_URL = `${BACKEND_URL}/api/users/`;
 
 // Register User

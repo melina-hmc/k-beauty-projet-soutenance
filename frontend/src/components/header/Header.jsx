@@ -8,6 +8,7 @@ import { RESET_AUTH, logout } from "../../redux/features/auth/authSlice";
 import ShowOnLogin , { ShowOnLogout } from "../hiddenLink/hiddenLink";
 import logoImg from "../../assets/images/whitelogo.png";
 import { UserName } from "../../pages/profile/Profile";
+import { AdminOnlyLink } from "../hiddenLink/AdminOnlyRoute";
 
 export const logo = (
     <div className='logo'>
@@ -81,19 +82,30 @@ function Header(){
                            </NavLink>
                         </li>
 
+                        <li>
+                            <AdminOnlyLink>
+                            <NavLink to={"/admin/home"} className={activeLink}>
+                                Admin
+                           </NavLink>
+                            </AdminOnlyLink>
+                        </li>
+
                     </ul>
 
                     <div className="header-right">
                         <span className="links">
 
                             <ShowOnLogin>
-                            <NavLink to={"login"} className={activeLink}>
+                            <Link to={"profile"}>
                                 <FaUserCircle size={16} color="#f5f5f5"/>
                                 <UserName />
-                            </NavLink>
+                            </Link>
                             </ShowOnLogin>
 
                             <ShowOnLogout>
+                            <NavLink to={"login"} className={activeLink}>
+                                Connexion
+                            </NavLink>
                             <NavLink to={"register"} className={activeLink}>
                                 Inscription
                             </NavLink>

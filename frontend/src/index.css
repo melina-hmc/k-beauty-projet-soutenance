@@ -311,6 +311,11 @@ p {
   background: orangered;
 }
 
+.--btn-red {
+    color: #fff;
+    background: red;
+  }
+
 .--btn-success {
   color: #fff;
   background: #28a745;
