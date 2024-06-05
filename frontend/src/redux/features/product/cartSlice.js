@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 import cartService from "./cartService";
 import { getCartQuantityById } from "../../../utils";
 
-const FRONTEND_URL = process.env.REACT_APP_FRONTEND_URL;
+const FRONTEND_URL = import.meta.env.VITE_REACT_APP_FRONTEND_URL;
 
 // Apply discoount to cart
 function applyDiscount(cartTotalAmount, discountPercentage) {

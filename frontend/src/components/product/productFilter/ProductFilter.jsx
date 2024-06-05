@@ -6,9 +6,9 @@ import {
   FILTER_BY_CATEGORY,
   FILTER_BY_PRICE,
 } from "../../../redux/features/product/filterSlice";
+import { GET_PRICE_RANGE } from "../../../redux/features/product/productSlice";
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
-import { GET_PRICE_RANGE } from "../../../redux/features/product/productSlice";
 
 function ProductFilter() {
   const { products, minPrice, maxPrice } = useSelector(
@@ -17,7 +17,7 @@ function ProductFilter() {
   // console.log(minPrice, maxPrice);
   const [category, setCategory] = useState("All");
   const [brand, setBrand] = useState("All");
-  const [price, setPrice] = useState([50, 1500]);
+  const [price, setPrice] = useState([50, 2000]);
 
   const dispatch = useDispatch();
 
@@ -44,19 +44,17 @@ function ProductFilter() {
       setBrand("All");
       setPrice([minPrice, maxPrice]);
     };
-
     
+    useEffect(() => {
+        dispatch(FILTER_BY_BRAND({ products, brand }));
+    }, [dispatch, products, brand]);
+
     useEffect(() => {
       dispatch(GET_PRICE_RANGE({ products }));
     }, [dispatch, products]);
     
     useEffect(() => {
-      dispatch(FILTER_BY_BRAND({ products, brand }));
-    }, [dispatch, products, brand]);
-    
-    useEffect(() => {
       dispatch(FILTER_BY_PRICE({ products, price }));
-      // console.log(price);
     }, [dispatch, products, price]);
 
   return (
@@ -88,7 +86,7 @@ function ProductFilter() {
           })}
         </select>
         <h4>Prix</h4> 
-        {/* <Range /> 
+        {/* <Range />  */}
 
         <div className={styles.price}>
           <Slider
@@ -112,8 +110,8 @@ function ProductFilter() {
         <br />
         <br />
         <button className="--btn --btn-danger" onClick={clearFilters}>
-          Clear Filter
-        </button> */}
+          Effacer les filtres
+        </button>
       </div>
     </div>
   );

@@ -10,7 +10,7 @@ import {
   SORT_PRODUCTS,
   selectFilteredProducts,
 } from "../../../redux/features/product/filterSlice";
-// import ReactPaginate from "react-paginate";
+import ReactPaginate from "react-paginate";
 
 function ProductList({products}) {
     const [grid, setGrid] = useState(true);
@@ -28,6 +28,18 @@ function ProductList({products}) {
     dispatch(SORT_PRODUCTS({products, sort}))
   }, [dispatch, products, sort])
 
+    // Begin Pagination
+    const itemsPerPage = 8;
+    const [itemOffset, setItemOffset] = useState(0);
+    const endOffset = itemOffset + itemsPerPage;
+    const currentItems = filteredProducts.slice(itemOffset, endOffset);
+    const pageCount = Math.ceil(filteredProducts.length / itemsPerPage);
+  
+    const handlePageClick = (event) => {
+      const newOffset = (event.selected * itemsPerPage) % filteredProducts.length;
+      setItemOffset(newOffset);
+    };
+    // End Pagination
 
   return (
     <div className={styles["product-list"]}>
@@ -44,7 +56,7 @@ function ProductList({products}) {
                 />
 
                 <p>
-                    <b>{products.length}</b> Produits trouvés.
+                    <b>{currentItems.length}</b> Produits trouvés.
                 </p>
             </div>
 
@@ -68,7 +80,7 @@ function ProductList({products}) {
                 <p>Aucun produit trouvé</p>
             ) : (
                 <>
-                {filteredProducts.map((product) => {
+                {currentItems.map((product) => {
                     return (
                         <div key={product._id}>
                         <ProductItem {...product} grid={grid} product={product}/>
@@ -77,6 +89,22 @@ function ProductList({products}) {
                 })}</>
             )}
         </div>
+
+        <ReactPaginate
+          breakLabel="..."
+          nextLabel="Next"
+          onPageChange={handlePageClick}
+          pageRangeDisplayed={3}
+          pageCount={pageCount}
+          previousLabel="Prev"
+          renderOnZeroPageCount={null}
+          containerClassName="pagination"
+          pageLinkClassName="page-num"
+          previousLinkClassName="page-num"
+          nextLinkClassName="page-num"
+          activeLinkClassName="activePage"
+        />
+
     </div>
   );
 };
