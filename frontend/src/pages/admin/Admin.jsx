@@ -17,7 +17,6 @@ function Admin() {
                 <Navbar />
             </div>
             <div> 
-                {/* y'avait dans la div du dessus une div "content" mais elle faisait disparaitre tout le texte donc je l'ai enlever, je verrais si je la remet ou pas */}
                 <Routes>
                     <Route path="home" element={<AdminHome/>} />
                     <Route path="category" element={<Category/>} />
@@ -26,9 +25,6 @@ function Admin() {
                     <Route path="add-product" element={<AddProduct />} />
                     <Route path="all-products" element={<ViewProducts/>} />
                     <Route path="edit-product/:id" element={<EditProduct/>} />
-
-
-
 
                 </Routes>
             </div>

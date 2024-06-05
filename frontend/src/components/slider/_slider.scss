@@ -42,9 +42,7 @@
     flex-direction: column;
     transform: translateX(-50%);
     background: rgba(0, 0, 0, 0.4);
-    animation: slide-up 1s ease 0.5s;
-    animation-fill-mode: forwards;
-    //   visibility: hidden;
+    animation: 1s ease 0.5s;
     h2 {
       font-size: 4.5rem;
     }

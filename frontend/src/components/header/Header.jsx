@@ -1,14 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink , Link, useNavigate } from "react-router-dom";
 import { IoCartOutline } from "react-icons/io5";
 import { IoIosMenu } from "react-icons/io";
 import { FaTimes, FaUserCircle } from "react-icons/fa";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RESET_AUTH, logout } from "../../redux/features/auth/authSlice";
 import ShowOnLogin , { ShowOnLogout } from "../hiddenLink/hiddenLink";
 import logoImg from "../../assets/images/whitelogo.png";
 import { UserName } from "../../pages/profile/Profile";
 import { AdminOnlyLink } from "../hiddenLink/AdminOnlyRoute";
+import { CALCULATE_TOTAL_QUANTITY, selectCartItems, selectCartTotalQuantity } from "../../redux/features/cart/cartSlice";
 
 export const logo = (
     <div className='logo'>
@@ -26,6 +27,8 @@ function Header(){
 
     const [showMenu, setShowMenu] = useState(false);
     const [scrollPage, setScrollPage] = useState(false);
+    const cartItems = useSelector(selectCartItems);
+    const cartTotalQuantity = useSelector(selectCartTotalQuantity);
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -33,7 +36,7 @@ function Header(){
         if (window.scrollY > 50) {
             setScrollPage(true)
         } else {
-            setScrollPage(true) // ou false ? je sais pas si il s'est trompé en mettant true ici a la place de false mais ca marche pour les 2.
+            setScrollPage(true)
         }
     };
     window.addEventListener("scroll", fixNavbar);
@@ -51,6 +54,10 @@ function Header(){
         navigate("/login")
 
     };
+
+    useEffect(() => {
+        dispatch(CALCULATE_TOTAL_QUANTITY());
+    }, [cartItems, dispatch]);
     
 
     const cart = (
@@ -58,13 +65,12 @@ function Header(){
             <Link to={"cart"}>
                 Panier
                 <IoCartOutline size={20} />
-                <p>0</p>
+                <p>{cartTotalQuantity}</p>
             </Link>
         </span>
     )
     return (
         <header className={scrollPage ? `${"fixed"}` : null}> 
-        {/* si y'a un problème avec le haut de page/header, revient à 2h52 pour revoir le header fixé. Actuellement le header est fixé mais cache les images des swiper */}
             <div className='header'>{logo}
                 <nav className={showMenu ? "show-nav" : "hide-nav"}>
 

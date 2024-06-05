@@ -13,7 +13,7 @@ function PageMenu() {
                         <NavLink to="/wallet">My Wallet</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/wishlist">Wishlist</NavLink>
+                        <NavLink to="/wishlist">Favoris</NavLink>
                     </li>
                 </ul>
             </nav>

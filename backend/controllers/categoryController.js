@@ -39,7 +39,6 @@ const createCategory = asyncHandler(async (req, res) => {
     }
     res.status(200).json({ message: "Category deleted" });
   });
-  // pour le thunderclient de deleteCategory, i à mis un get dans la route et le nom en lowercase de la catégorie qu'on souhaite supprimer (teint, lèvre, yeux). Mais c peut etre mieux de mettre delete (comme dns son fichier) a la place de get donc on verra si on le change plus tard, en tout cas ca marche avec le get (sa supprime bien la categorie)
 
 module.exports = {
   createCategory,

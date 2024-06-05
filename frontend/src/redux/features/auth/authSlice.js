@@ -288,9 +288,5 @@ export const {RESET_AUTH} = authSlice.actions;
 
 export const selectIsLoggedIn = (state) => state.auth.isLoggedIn;
 export const selectUser = (state) => state.auth.user;
-// export const selectWishlist = (state) => state.auth.wishlist;
-// export const selectIsLoading = (state) => state.auth.isLoading;
 
 export default authSlice.reducer;
-
-// j'ai converti ce fichier et store.js en js psq ca bugait mais a voir si je remet en jsx ou pas

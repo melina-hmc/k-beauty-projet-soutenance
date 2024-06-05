@@ -68,7 +68,7 @@ function Register(){
             <section className={`container ${"auth"}`}>
             <Card>
                 <div className="form">
-                    <h2>Register</h2>
+                    <h2>Inscription</h2>
                     <form onSubmit={registerUser}>
                     <input
                         type="text"
@@ -103,12 +103,12 @@ function Register(){
                         onChange={handleInputChange}
                     />
                     <button type="submit" className="--btn --btn-primary --btn-block">
-                        Register
+                        Inscription
                     </button>
                 </form>
                 <span className="register">
-                    <p>Already have an account ?</p>
-                    <Link to="/login">Login</Link>
+                    <p>Tu as déjà un compte ?</p>
+                    <Link to="/login">Connexion</Link>
                 </span>
                 </div>
             </Card>

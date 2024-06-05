@@ -1,22 +1,13 @@
-
 import { useEffect, useState } from "react";
 import loginImg from "../../assets/images/login.png"
 import { Link, useNavigate } from "react-router-dom";
-// import { FaGoogle } from "react-icons/fa";
 import Card from "../../components/card/Card";
-// import {
-//   GoogleAuthProvider,
-//   signInWithEmailAndPassword,
-//   signInWithPopup,
-// } from "firebase/auth";
-// import { auth } from "../../firebase/config";
 import { toast } from "react-toastify";
 import { validateEmail } from "../../utils";
 import { useDispatch, useSelector } from "react-redux";
 import { RESET_AUTH, login } from "../../redux/features/auth/authSlice";
 import Loader from "../../components/loader/Loader";
-// import { useSelector } from "react-redux";
-// import { selectPreviousURL } from "../../redux/slice/cartSlice";
+import { getCartDB } from "../../redux/features/cart/cartSlice";
 
 function Login(){
     const [email, setEmail] = useState("");
@@ -44,7 +35,8 @@ function Login(){
 
   useEffect(() => {
     if (isSuccess && isLoggedIn){
-        navigate("/")
+        // navigate("/")
+        dispatch(getCartDB())
     }
 
     dispatch(RESET_AUTH())
@@ -60,7 +52,7 @@ function Login(){
                 </div>
             <Card>
                 <div className="form">
-                    <h2>Login</h2>
+                    <h2>Connexion</h2>
                     <form onSubmit={loginUser}>
                         <input
                         type="text"
@@ -77,12 +69,12 @@ function Login(){
                         onChange={(e) => setPassword(e.target.value)}
                     />
                     <button type="submit" className="--btn --btn-primary --btn-block">
-                        Login
+                        Connexion
                     </button>
                 </form>
                 <span className="register">
-                    <p>Don't have an account ?</p>
-                    <Link to="/register">Register</Link>
+                    <p>Tu n'as pas de compte ?</p>
+                    <Link to="/register">Inscription</Link>
                 </span>
                 </div>
         </Card>

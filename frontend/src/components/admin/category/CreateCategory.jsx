@@ -15,7 +15,7 @@ function CreateCategory() {
         e.preventDefault();
 
         if(name.length < 3) {
-            return toast.error("Coupon must be up to 3 characters");
+            return toast.error("must be up to 3 characters");
         }
         const formData = {
             name

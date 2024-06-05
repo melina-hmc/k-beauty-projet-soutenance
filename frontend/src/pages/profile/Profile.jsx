@@ -8,15 +8,11 @@ import Loader from "../../components/loader/Loader";
 import { AiOutlineCloudUpload } from "react-icons/ai";
 import { toast } from "react-toastify";
 
-// Il y'a un soucis, quand je change les elements de mon profil elles ce change et s'enregistre dans la base de donnée, mais les changements ne reste pas ecrit dans le profile. Essai de chercher l'erreur vers 8h25 si le problème ne s'est tjr pas reglée !
-
 const cloud_name = import.meta.env.VITE_REACT_APP_CLOUD_NAME;
 const upload_preset = import.meta.env.VITE_REACT_APP_UPLOAD_PRESET;
 const url = `https://api.cloudinary.com/v1_1/${cloud_name}/image/upload`;
 
 const Profile = () => {
-    // useRedirectLoggedOutUser("/login");
-  
     const dispatch = useDispatch();
     const { isLoading, isLoggedIn, isSuccess, message, user } = useSelector(
       (state) => state.auth

@@ -1,5 +1,3 @@
-// j'ai appelé le fichier HomeInfo au lieu de HomeInfoBox ! et je peux mettre ce fichier dans un composants au lieu d'ici comme il l'a dit.
-
 import React from "react";
 import {
     BsCartCheck,
@@ -11,23 +9,23 @@ import {
 const data = [
     {
       icon: <FaShippingFast size={30} color="#8cb4f5" />,
-      heading: "Free Shipping",
-      text: "We offer free shipping on special products",
+      heading: "Livraison gratuite",
+      text: "Livraison gratuite en fonction des produits",
     },
     {
       icon: <BsFillCreditCardFill size={30} color="#f7d272" />,
-      heading: "Secure Payment",
-      text: "Make secure payment for your product.",
+      heading: "Payement securisé",
+      text: "Payement sécurisé",
     },
     {
       icon: <BsCartCheck size={30} color="#fa82ea" />,
-      heading: "Quality Products",
-      text: "We sell products from only tested and proven brands.",
+      heading: "Produit de qualité",
+      text: "On met en vente que des produits testé et approuvé",
     },
     {
       icon: <BsClockHistory size={30} color="#82fa9e" />,
       heading: "24/7 Support",
-      text: "Get access to support from our exprt support team.",
+      text: "Accédez à l'assistance de notre équipe d'expert",
     },
   ];
 

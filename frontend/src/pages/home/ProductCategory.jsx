@@ -1,25 +1,21 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-// https://i.ibb.co/fNkBYgr/c3.jpg
-// https://i.ibb.co/5GVkd3m/c1.jpg
-// https://i.ibb.co/nQKLjrW/c2.jpg
-
 const categories = [
     {
       id: 1,
-      title: "Gadgets",
-      image: "https://i.ibb.co/5GVkd3m/c1.jpg",
+      title: "Yeux",
+      image: "https://i.pinimg.com/236x/c0/0c/ef/c00cef5d968ff520422320fc459d8e96.jpg",
     },
     {
       id: 2,
-      title: "Womens Fashion",
-      image: "https://i.ibb.co/nQKLjrW/c2.jpg",
+      title: "Teint",
+      image: "https://i.pinimg.com/564x/57/e4/18/57e418591fc1dbc1148d57b178f78fec.jpg",
     },
     {
       id: 3,
-      title: "Sport Sneakers",
-      image: "https://i.ibb.co/fNkBYgr/c3.jpg",
+      title: "Lèvres",
+      image: "https://i.pinimg.com/236x/f9/93/87/f9938737476870a5b6fb9c3c0bd639ee.jpg",
     },
   ];
 
@@ -30,7 +26,7 @@ const categories = [
         <h3>{title}</h3>
         <img src={image} alt="img" />
         <button className="--btn" onClick={() => navigate("/shop")}>
-          {"Shop Now >"}
+          {"Voir Maintenant >"}
         </button>
       </div>
     );

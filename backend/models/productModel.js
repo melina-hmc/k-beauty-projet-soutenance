@@ -48,7 +48,6 @@ const productSchema = mongoose.Schema(
       type: Number,
       // required: [true, "Please add a price"],
       trim: true,
-      // c'est le prix après reduction
     },
     price: {
       type: Number,

@@ -86,7 +86,6 @@ function ProductFilter() {
           })}
         </select>
         <h4>Prix</h4> 
-        {/* <Range />  */}
 
         <div className={styles.price}>
           <Slider

@@ -38,8 +38,6 @@ const BrandList = ({ brands }) => {
   return (
     <div className="--mb2 ">
       <h3>All Brands</h3>
-      {/* Il affiche la base de donnée du produit sur la page pour s'assurer qu'il a bien été créer */}
-      {/* <pre>{JSON.stringify(brands, null, 2)}</pre> */}
 
       <div className={"table"}>
         {brands.length === 0 ? (

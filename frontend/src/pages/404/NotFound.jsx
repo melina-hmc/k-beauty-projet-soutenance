@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const NotFound = () => {
   return (
     <div className="--center-all" style={{ minHeight: "80vh" }}>
-      <h2>Page Not Found</h2>
+      <h2>Page Introuvable</h2>
       <p>La page que vous recherchez est introuvable !</p>
       <br />
       <Link to={"/"}>

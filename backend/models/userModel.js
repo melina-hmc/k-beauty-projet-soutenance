@@ -21,7 +21,7 @@ const userSchema = mongoose.Schema(
         password: {
             type: String,
             required: [true, "Please add a password"],
-            minLength: [6, "Password must be up to 6 characters"],
+            minLength: [8, "Password must be up to 8 characters"],
             //   maxLength: [23, "Password must not be more than 23 characters"],
         },
         role: {
@@ -43,13 +43,14 @@ const userSchema = mongoose.Schema(
             type: Object,
             // address, state, country
         },
+        cartItems: {
+            type: [Object],
+        },
     },
     {
         timestamps: true,
     }
 );
-
-// import en haut ObjectId mis en commentaire !
 
 // Encrypt pass before saving to Database
 userSchema.pre("save", async function(next) {

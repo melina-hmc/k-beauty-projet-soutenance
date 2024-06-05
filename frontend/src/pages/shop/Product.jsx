@@ -3,17 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { FaCogs } from "react-icons/fa";
 import styles from "./Product.module.scss";
 import {
-  GET_PRICE_RANGE,
   getProducts,
-  selectIsLoading,
-  selectProducts,
 } from "../../redux/features/product/productSlice";
 import { Spinner } from "../../components/loader/Loader";
 import ProductList from "../../components/product/productList/ProductList";
 import ProductFilter from "../../components/product/productFilter/ProductFilter";
 
 function Product() {
-//   const products = useSelector(selectProducts);
   const dispatch = useDispatch();
 
   const [showFilter, setShowFilter] = useState(false);
@@ -23,13 +19,6 @@ function Product() {
     dispatch(getProducts());
   }, [dispatch]);
 
-//   useEffect(() => {
-//     dispatch(
-//       GET_PRICE_RANGE({
-//         products: products,
-//       })
-//     );
-//   }, [dispatch, products]);
 
   const toggleFilter = () => {
     setShowFilter(!showFilter);

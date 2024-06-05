@@ -22,7 +22,7 @@ function AdminOnlyRoute({ children }) {
 
                 <Link to={"/"}>
                     <button className="--btn">
-                        Back to Home
+                        Retour à l'accueil
                     </button>
                 </Link>
             </div>

@@ -3,8 +3,6 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { responsive } from "./data";
 
-// n'hésite pas a regarder la documentaion officiel sur le caroussel (video: 2h10)
-
 function ProductCarousel({ products}){
     return(
         <div>

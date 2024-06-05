@@ -48,10 +48,6 @@ function Slider(){
                             <>
                                 <img src={image} alt="slide" />
                                 <div className="content">
-                                {/* <span className="span1"></span>
-                                <span className="span2"></span>
-                                <span className="span3"></span>
-                                <span className="span4"></span> il a mis ca mais jsp ca sert a quoi, tu verra si tu les supp*/}
                                     <h2>{heading}</h2>
                                     <p>{desc}</p>
                                     <button

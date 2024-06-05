@@ -54,7 +54,6 @@ const getProduct = asyncHandler(async (req, res) => {
         throw new Error("Product not found ")
     }
     res.status(200).json(product);
-    // Pour le tester dans Thunder Client il  faudra copier collé dans la barre un id d'un produit après products/, par exemple: localhost:9001/api/products/66572aed17bccd5d4fe48fd5
 });
 
 // delete product

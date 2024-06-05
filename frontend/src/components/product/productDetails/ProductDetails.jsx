@@ -8,11 +8,10 @@ import {
   DECREASE_CART,
   saveCartDB,
   selectCartItems,
-} from "../../../redux/features/product/cartSlice";
+} from "../../../redux/features/cart/cartSlice";
 import { Spinner } from "../../loader/Loader";
 import { getProduct } from "../../../redux/features/product/productSlice";
 import DOMPurify from "dompurify";
-// import { addToWishlist } from "../../../redux/features/auth/authSlice";
 import { toast } from "react-toastify";
 
 function ProductDetails() {
@@ -58,18 +57,6 @@ function ProductDetails() {
 
   const decreaseCart = (product) => {
     dispatch(DECREASE_CART(product));
-    // dispatch(CALCULATE_TOTAL_QUANTITY());
-    // dispatch(
-    //   saveCartDB({ cartItems: JSON.parse(localStorage.getItem("cartItems")) })
-    // );
-  };
-  // console.log(product);
-  const addWishlist = (product) => {
-    const productData = {
-      productId: product._id,
-    };
-    console.log(productData);
-    // dispatch(addToWishlist(productData));
   };
 
   return (
