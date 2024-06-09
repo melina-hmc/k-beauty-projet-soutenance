@@ -3,12 +3,14 @@ import { NavLink , Link, useNavigate } from "react-router-dom";
 import { IoCartOutline } from "react-icons/io5";
 import { IoIosMenu } from "react-icons/io";
 import { FaTimes, FaUserCircle } from "react-icons/fa";
+import { MdOutlineLogout } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { RESET_AUTH, logout } from "../../redux/features/auth/authSlice";
 import ShowOnLogin , { ShowOnLogout } from "../hiddenLink/hiddenLink";
 import logoImg from "../../assets/images/whitelogo.png";
 import { UserName } from "../../pages/profile/Profile";
 import { AdminOnlyLink } from "../hiddenLink/AdminOnlyRoute";
+import { FaRegUser } from "react-icons/fa";
 import { CALCULATE_TOTAL_QUANTITY, selectCartItems, selectCartTotalQuantity } from "../../redux/features/cart/cartSlice";
 
 export const logo = (
@@ -103,7 +105,7 @@ function Header(){
 
                             <ShowOnLogin>
                             <Link to={"profile"}>
-                                <FaUserCircle size={16} color="#f5f5f5"/>
+                                <FaRegUser size={16} color="#f5f5f5"/>
                                 <UserName />
                             </Link>
                             </ShowOnLogin>
@@ -112,20 +114,12 @@ function Header(){
                             <NavLink to={"login"} className={activeLink}>
                                 Connexion
                             </NavLink>
-                            <NavLink to={"register"} className={activeLink}>
-                                Inscription
-                            </NavLink>
                             </ShowOnLogout>
 
                             <ShowOnLogin>
-                            <NavLink to={"order-history"} className={activeLink}>
-                                Mes commandes
-                            </NavLink>
-                            </ShowOnLogin>
-
-                            <ShowOnLogin>
                             <Link to={"/"} onClick={logoutUser}>
-                                Déconnexion 
+                                <MdOutlineLogout
+                                size={17}/>
                             </Link>
                             </ShowOnLogin>
                         </span>

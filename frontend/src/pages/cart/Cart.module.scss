@@ -9,8 +9,8 @@
       font-size: 1.4rem;
   
       thead {
-        border-top: 2px solid var(--light-blue);
-        border-bottom: 2px solid var(--light-blue);
+        border-top: 2px solid blue;
+        border-bottom: 2px solid blue;
       }
   
       th {
@@ -51,7 +51,7 @@
           justify-content: space-between;
           align-items: center;
           h3 {
-            color: var(--color-danger);
+            color: red;
           }
         }
         button {
@@ -64,7 +64,7 @@
     display: flex;
     align-items: center;
     button {
-      border: 1px solid var(--darkblue);
+      border: 1px solid blue;
     }
     & > * {
       margin-right: 1rem;

@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
-// const { ObjectId } = mongoose.Schema;
 
 const userSchema = mongoose.Schema(
     {
@@ -15,14 +14,14 @@ const userSchema = mongoose.Schema(
             trim: true,
             match: [
                 /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                "Please enter a valid emaial",
+                "Entrez un email valide s'il vous plait",
             ],
         },
         password: {
             type: String,
-            required: [true, "Please add a password"],
-            minLength: [8, "Password must be up to 8 characters"],
-            //   maxLength: [23, "Password must not be more than 23 characters"],
+            required: [true, "Met un mot de passe s'il te plait"],
+            minLength: [8, "Le mot de passe doit avoir au moins 8 caractères"],
+            // maxLength: [23, "Le mot de passe doit pas avoir plus de 23 caractères"],
         },
         role: {
             type: String,
@@ -32,7 +31,7 @@ const userSchema = mongoose.Schema(
         },
         photo: {
             type: String,
-            required: [true, "Please add a photo"],
+            required: [true, "Met une photo s'il te plait"],
             default: "https://i.ibb.co/4pDNDk1/avatar.png",
           },
         phone: {
@@ -47,6 +46,7 @@ const userSchema = mongoose.Schema(
             type: [Object],
         },
     },
+    // createdAt and updatedAt.
     {
         timestamps: true,
     }

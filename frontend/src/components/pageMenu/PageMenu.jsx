@@ -10,7 +10,7 @@ function PageMenu() {
                         <NavLink to="/profile">Profile</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/wallet">My Wallet</NavLink>
+                        <NavLink to="/order-history">Mes commandes</NavLink>
                     </li>
                     <li>
                         <NavLink to="/wishlist">Favoris</NavLink>

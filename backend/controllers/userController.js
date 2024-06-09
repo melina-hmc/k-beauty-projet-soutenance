@@ -3,7 +3,8 @@ const User = require("../models/userModel");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 
-// Generate Token
+
+// Generate Token with id for 1 day
 const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "1d" });
 };
@@ -16,11 +17,11 @@ const registerUser = asyncHandler(async (req, res) => {
   // Validation
   if (!name || !email || !password) {
     res.status(400);
-    throw new Error("Please fill in all required fields");
+    throw new Error("Veuillez remplir tous les champs requis");
   }
-  if (password.length < 6) {
+  if (password.length < 8) {
     res.status(400);
-    throw new Error("Password must be up to 6 characters");
+    throw new Error("Le mot de passe doit avoir au moins 8 caractères svp");
   }
 
   // Check if user email already exists
@@ -28,7 +29,7 @@ const registerUser = asyncHandler(async (req, res) => {
 
   if (userExists) {
     res.status(400);
-    throw new Error("Email has already been registered");
+    throw new Error("L'email a déjà été enregistré");
   }
 
   // Create new user
@@ -48,10 +49,10 @@ const registerUser = asyncHandler(async (req, res) => {
       httpOnly: true,
       expires: new Date(Date.now() + 1000 * 86400), // 1 day
     //   sameSite: "none",
-      // secure: true,
+    //   secure: true,
     });
 
-    //Sens user data
+    // Send user data
     res.status(201).json({
       _id,
       name,
@@ -62,7 +63,7 @@ const registerUser = asyncHandler(async (req, res) => {
     });
   } else {
     res.status(400);
-    throw new Error("Invalid user data");
+    throw new Error("Données utilisateur invalides");
   }
 });
 
@@ -73,7 +74,7 @@ const loginUser = asyncHandler(async (req, res) => {
   // Validate Request
   if (!email || !password) {
     res.status(400);
-    throw new Error("Please add email and password");
+    throw new Error("Veuillez ajouter votre email et votre mot de passe");
   }
 
   // Check if user exists
@@ -81,7 +82,7 @@ const loginUser = asyncHandler(async (req, res) => {
 
   if (!user) {
     res.status(400);
-    throw new Error("User not found, please signup");
+    throw new Error("Utilisateur introuvable, veuillez vous inscrire");
   }
 
   // User exists, check if password is correct
@@ -103,11 +104,12 @@ const loginUser = asyncHandler(async (req, res) => {
         res.status(201).json(newUser);
     } else {
         res.status(400);
-        throw new Error("Invalid email or password");
+        throw new Error("Invalide email ou mot de passe");
   }
 });
 
 // Logout User
+// Clears token cookie (empty string) + expires immediately.
 const logout = asyncHandler(async (req, res) => {
   res.cookie("token", "", {
     path: "/",
@@ -116,7 +118,7 @@ const logout = asyncHandler(async (req, res) => {
     // sameSite: "none",
     // secure: true,
   });
-  return res.status(200).json({ message: "Successfully Logged Out" });
+  return res.status(200).json({ message: "Déconnexion réussie" });
 });
 
 // Get User Data
@@ -127,8 +129,7 @@ const getUser = asyncHandler(async (req, res) => {
     // const { _id, name, email, phone, address } = user;
     res.status(200).json(user);
   } else {
-    res.status(400);
-    throw new Error("User Not Found");
+    res.status(400).json({ error: "Utilisateur non trouvé"});
   }
 });
 

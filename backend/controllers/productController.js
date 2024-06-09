@@ -19,7 +19,7 @@ const createProduct = asyncHandler(async (req, res) => {
 
     if (!name || !category || !brand || !quantity || !price || !description) {
         res.status(400);
-        throw new Error("Please fill in all fields");
+        throw new Error("Merci de remplir tous les champs");
     }
 
     // Create product
@@ -51,7 +51,7 @@ const getProduct = asyncHandler(async (req, res) => {
     const product = await Product.findById(req.params.id)
     if (!product) {
         res.status(404);
-        throw new Error("Product not found ")
+        throw new Error("Produit non trouvé")
     }
     res.status(200).json(product);
 });
@@ -62,7 +62,7 @@ const deleteProduct = asyncHandler(async (req, res) => {
     const product = await Product.findById(req.params.id)
     if (!product) {
         res.status(404);
-        throw new Error("Product not found ")
+        throw new Error("Produit non trouvé")
     }
     await Product.findByIdAndDelete(req.params.id)
     res.status(200).json({message : "Product Deleted !"});
@@ -86,7 +86,7 @@ const updateProduct = asyncHandler(async (req, res) => {
     const product = await Product.findById(req.params.id)
     if (!product) {
         res.status(404);
-        throw new Error("Product not found ")
+        throw new Error("Produit non trouvé")
     }
 
     // Now, update the product
@@ -121,7 +121,7 @@ const reviewProduct = asyncHandler(async (req, res) => {
     // validation
     if (star < 1 || !review) {
       res.status(400);
-      throw new Error("Please add star and review");
+      throw new Error("Veuillez ajouter une étoile et un avis");
     }
   
     const product = await Product.findById(id);
@@ -129,11 +129,11 @@ const reviewProduct = asyncHandler(async (req, res) => {
     // if product doesnt exist
     if (!product) {
       res.status(400);
-      throw new Error("Product not found");
+      throw new Error("Produit non trouvé");
     }
     if (!product) {
       res.status(404);
-      throw new Error("Product not found");
+      throw new Error("Produit non trouvé");
     }
   
     // Update rating

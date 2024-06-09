@@ -16,7 +16,7 @@ function Loader(){
 export const Spinner = () => {
     return (
         <div className='--center-all'>
-                <img src={loaderImg} alt="loading" width={10} />
+                <img src={loaderImg} alt="loading" width={20} />
         </div>
     )
 }

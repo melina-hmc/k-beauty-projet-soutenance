@@ -1,5 +1,19 @@
 # React + Vite
 
+Bonjour à toute et à tous, ce projet est un site internet e-commerce de vente de maquillage Coréen: K-BEAUTY
+
+Pour lancer le site, il faut lancer la commande "npm run dev" dans le frontend et "npm run go" ou "npm run start" dans le backend.
+
+Une fois fait, il vous suffis de copier coller le lien sur la barre de recherche d'internet et le site est désormais accessible.
+
+Pour se connecter, il y'a le compte admin pour pouvoir avoir accès à plusieurs fonctionnalité:
+identifiant: admin@gmail.com
+mdp: user123
+
+et un compte client:
+identifiant: melina.h@gmail.com
+mdp: user123
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
