@@ -19,7 +19,7 @@ const CreateBrand = () => {
   const saveBrand = async (e) => {
     e.preventDefault();
     if (name.length < 2) {
-      return toast.error("Coupon must be up to 2 characters");
+      return toast.error("name must be up to 2 characters");
     }
     if (!category) {
       return toast.error("Please add a parent category");
@@ -40,14 +40,14 @@ const CreateBrand = () => {
       <div className="--underline"></div>
       <br />
       <div className="--mb2">
-        <h3>Create Brand</h3>
+        <h3>Créer une marque</h3>
         <p>
           Use the form to <b>Create a Brand.</b>
         </p>
         <Card cardClass={"card"}>
           <br />
           <form onSubmit={saveBrand}>
-            <label>Brand Name:</label>
+            <label>Nom de la marque:</label>
             <input
               type="text"
               placeholder="Brand name"

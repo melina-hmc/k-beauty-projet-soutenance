@@ -18,17 +18,13 @@ const Profile = () => {
       (state) => state.auth
     );
     const initialState = {
-      name: user?.name || "",
-      email: user?.email || "",
-      phone: user?.phone || "",
-      role: user?.role || "",
-      photo: user?.photo || "",
-      address: {
-        address: user?.address?.address || "",
-        state: user?.address?.state || "",
-        country: user?.address?.country || "",
-      },
-    };
+        name: user?.name || "",
+        email: user?.email || "",
+        phone: user?.phone || "",
+        role: user?.role || "",
+        address: user?.address || {},
+      };
+      
     const [profile, setProfile] = useState(initialState);
     const [profileImage, setProfileImage] = useState(null);
     const [imagePreview, setImagePreview] = useState(null);
@@ -76,51 +72,48 @@ const Profile = () => {
     };
   
     useEffect(() => {
-      if (user === null) {
-        dispatch(getUser());
-      }
-    }, [dispatch, user]);
-    // console.log(user);
-    useEffect(() => {
-      if (user) {
-        setProfile({
-          name: user?.name || "",
-          email: user?.email || "",
-          phone: user?.phone || "",
-          role: user?.role || "",
-          photo: user?.photo || "",
-          address: {
-            address: user?.address?.address || "",
-            state: user?.address?.state || "",
-            country: user?.address?.country || "",
-          },
-        });
-      }
-    }, [user]);
-  
-    const handleInputChange = (e) => {
-      const { name, value } = e.target;
-      setProfile({ ...profile, [name]: value });
-    };
-  
-    const saveProfile = async (e) => {
+        if (user === null) {
+          dispatch(getUser());
+        }
+      }, [dispatch, user]);
+      // console.log(user);
+      useEffect(() => {
+        if (user) {
+          setProfile({
+            name: user.name || "",
+            email: user.email || "",
+            phone: user.phone || "",
+            role: user.role || "",
+            address: user.address || {},
+          });
+        }
+      }, [user]);
+    
+      const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setProfile({ ...profile, [name]: value });
+      };
+    
+      const saveProfile = async (e) => {
         e.preventDefault();
         try {
           const userData = {
             name: profile.name,
             phone: profile.phone,
             address: {
-              address: profile.address.address,
-              state: profile.address.state,
-              country: profile.address.country,
+              address: profile.address,
+              state: profile.state,
+              country: profile.country,
             },
           };
-          await dispatch(updateUser(userData));
+          console.log(userData);
+    
+          dispatch(updateUser(userData));
         } catch (error) {
           toast.error(error.message);
         }
       };
-    // console.log(profile);
+    //   console.log(profile);
     return (
       <>
         <section>

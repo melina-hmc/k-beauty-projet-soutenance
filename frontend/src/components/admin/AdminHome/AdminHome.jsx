@@ -4,7 +4,7 @@ import "./_adminHome.scss";
 function AdminHome() {
     return (
         <div>
-            <h2>AdminHome</h2>
+            <h2>Accueil Admin</h2>
         </div>
     );
 };

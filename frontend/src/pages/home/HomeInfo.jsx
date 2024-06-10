@@ -13,12 +13,12 @@ const data = [
         icon: <FaArrowRotateLeft size={30}/>,
         heading: "Retours faciles",
         text: "Retour simple et gratuit",
-        },
-            {
-              icon: <MdSecurity size={30} />,
-              heading: "Achats sécurisés",
-              text: "cryptage SSL garantit la protection de vos informations",
-            },
+    },
+    {
+        icon: <MdSecurity size={30} />,
+        heading: "Achats sécurisés",
+        text: "cryptage SSL garantit la protection de vos informations",
+    },
   ];
 
 function HomeInfo(){

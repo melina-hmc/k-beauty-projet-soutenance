@@ -30,16 +30,18 @@ function Home(){
 
     const { products } = useSelector((state) => state.product);
 
+    // "nos derniers produits"
     const latest = products?.filter((product) => {
-        return product.quantity > 0;
-    })
-    ?.filter((product, index) => index < 6)
-
+        return product.quantity > 0; // only products on stock
+        })
+        ?.filter((product, index) => index < 6) // 6 first products
+        
+    // "nos produits pour les lèvres"
     const lips = products?.filter((product) => {
         return product.quantity > 0;
     })
     ?.filter((product) => {
-        return product.category === "Lèvres";
+        return product.category === "Lèvres"; // only category "Lèvres"
     })
     ?.filter((product, index) => index < 6)
 
@@ -87,7 +89,6 @@ function Home(){
 
             <section>
                 <div className="container">
-                    {/* <HomeInfo /> */}
                     <PageHeading heading={"Nos produits pour les lèvres"} btnText = {"Voir"}/>
                     <ProductCarousel products={lipsProducts}/>
                 </div>

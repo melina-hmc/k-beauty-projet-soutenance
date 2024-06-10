@@ -17,6 +17,7 @@ function Cart () {
     const cartTotalAmount = useSelector(selectCartTotalAmount);
     const cartTotalQuantity = useSelector(selectCartTotalQuantity);
 
+    // Augmente la quantité d'un produit dans le panier et sauvegarde le panier mis à jour dans la base de données.
     const increaseCart = (product) => {
         dispatch(ADD_TO_CART(product));
         dispatch(
@@ -24,12 +25,14 @@ function Cart () {
         )
 
     };
+    // pareil mais diminue
     const decreaseCart = (product) => {
         dispatch(DECREASE_CART(product));
         dispatch(
             saveCartDB({ cartItems: JSON.parse(localStorage.getItem("cartItems")) })
         )
     };
+    // supp and save
     const removeFromCart = (cart) => {
         dispatch(REMOVE_FROM_CART(cart));
         dispatch(
@@ -52,6 +55,7 @@ function Cart () {
   return (
     <div className={`container ${styles.table}`}>
         <h2>Panier</h2>
+        {/* cart without item(s) */}
         {cartItems?.length === 0 ? (
             <>
                 <p>Ton panier est vide</p>
@@ -73,6 +77,7 @@ function Cart () {
                         </tr>
                     </thead>
                     <tbody>
+                        {/* cart with item(s) */}
                         {cartItems?.map((cart, index) => {
                             const { _id, name, price, image, cartQuantity } = cart;
                             return (
@@ -84,7 +89,7 @@ function Cart () {
                                                {name} 
                                             </b>
                                         </p>
-                                        <img src={image[0      ]} alt={name} style={{width:"100px"}}/>
+                                        <img src={image[0]} alt={name} style={{width:"100px"}}/>
                                     </td>
                                     <td>{price}</td>
                                     <td>

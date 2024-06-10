@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { selectUser } from "../../redux/features/auth/authSlice";
 import { Link } from "react-router-dom";
 
-
+// Only for the admin !
 function AdminOnlyRoute({ children }) {
 
     const user = useSelector(selectUser);
@@ -33,7 +33,6 @@ function AdminOnlyRoute({ children }) {
 export const AdminOnlyLink = ({children}) => {
     const user = useSelector(selectUser);
     const userRole = user?.role;
-
 
     if (userRole === "admin") {
         return children;

@@ -21,7 +21,7 @@ function Product() {
 
 
   const toggleFilter = () => {
-    setShowFilter(!showFilter);
+    setShowFilter(!showFilter); // inverse l'état actuel de showFilter lorsque l'icône du filtre est cliquée.
   };
 
   return (

@@ -9,7 +9,6 @@ function Category() {
             <div className="container coupon">
                 <CreateCategory />
                 <CategoryList />
-
             </div>
         </section>
     )

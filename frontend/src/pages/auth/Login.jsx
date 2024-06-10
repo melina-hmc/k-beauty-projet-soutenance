@@ -28,8 +28,7 @@ function Login(){
         email,
         password
     }
-    console.log(userData);
-
+    // console.log(userData);
     await dispatch(login(userData));
   };
 
@@ -38,47 +37,46 @@ function Login(){
         // navigate("/")
         dispatch(getCartDB())
     }
-
     dispatch(RESET_AUTH())
   }, [isSuccess, isLoggedIn, dispatch, navigate])
 
     return (
 
         <>
-        {isLoading && <Loader />}
-            <section className={`container ${"auth"}`}>
-                <div className="img">
-                    <img src={loginImg} alt="Login" width={400} />
-                </div>
-            <Card>
-                <div className="form">
-                    <h2>Connexion</h2>
-                    <form onSubmit={loginUser}>
+            {isLoading && <Loader />}
+                <section className={`container ${"auth"}`}>
+                    <div className="img">
+                        <img src={loginImg} alt="Login" width={400} />
+                    </div>
+                <Card>
+                    <div className="form">
+                        <h2>Connexion</h2>
+                        <form onSubmit={loginUser}>
+                            <input
+                            type="text"
+                            placeholder="Email"
+                            required
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
                         <input
-                        type="text"
-                        placeholder="Email"
-                        required
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                    />
-                    <input
-                        type="password"
-                        placeholder="Password"
-                        required
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
-                    <button type="submit" className="--btn --btn-primary --btn-block">
-                        Connexion
-                    </button>
-                </form>
-                <span className="register">
-                    <p>Tu n'as pas de compte ?</p>
-                    <Link to="/register">Inscription</Link>
-                </span>
-                </div>
-        </Card>
-        </section>
+                            type="password"
+                            placeholder="Password"
+                            required
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
+                        <button type="submit" className="--btn --btn-primary --btn-block">
+                            Connexion
+                        </button>
+                    </form>
+                    <span className="register">
+                        <p>Tu n'as pas de compte ?</p>
+                        <Link to="/register">Inscription</Link>
+                    </span>
+                    </div>
+            </Card>
+            </section>
     </>
     )
 };

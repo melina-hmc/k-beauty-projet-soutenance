@@ -19,7 +19,7 @@ product, grid, _id, name, price, image, regularPrice
   const addToCart = (product) => {
     dispatch(ADD_TO_CART(product));
     dispatch(
-      saveCartDB({ cartItems: JSON.parse(localStorage.getItem("cartItems")) })
+      saveCartDB({ cartItems: JSON.parse(localStorage.getItem("cartItems")) }) // save to database
     );
   };
 

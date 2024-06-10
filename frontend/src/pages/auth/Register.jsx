@@ -34,8 +34,8 @@ function Register(){
     if (!email || !password){
         return toast.error("All fields are required")
     }
-    if (password.length < 6){
-        return toast.error("Password must be up to 6 characters")
+    if (password.length < 8){
+        return toast.error("Password must be up to 8 characters")
     }
     if (!validateEmail(email)){
         return toast.error("Please enter a valid email")

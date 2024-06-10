@@ -25,7 +25,6 @@ function Admin() {
                     <Route path="add-product" element={<AddProduct />} />
                     <Route path="all-products" element={<ViewProducts/>} />
                     <Route path="edit-product/:id" element={<EditProduct/>} />
-
                 </Routes>
             </div>
         </div>

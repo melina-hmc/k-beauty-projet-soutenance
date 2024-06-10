@@ -28,7 +28,7 @@ function ProductList({products}) {
     dispatch(SORT_PRODUCTS({products, sort}))
   }, [dispatch, products, sort])
 
-    // Begin Pagination
+    // Begin Pagination = changer de page
     const itemsPerPage = 8;
     const [itemOffset, setItemOffset] = useState(0);
     const endOffset = itemOffset + itemsPerPage;

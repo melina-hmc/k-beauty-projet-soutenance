@@ -14,6 +14,9 @@ et un compte client:
 identifiant: melina.h@gmail.com
 mdp: user123
 
+Lien du powerpoint - présentation:
+https://1drv.ms/p/c/9917e12d34655412/EbWhaz5rhrNIqEutzbnYYzgB9EmTVNhwDU3QbW0f49L1gg?e=CxhmhB&nav=eyJzSWQiOjI1NiwiY0lkIjozNjAxMDgyNjI1fQ
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
