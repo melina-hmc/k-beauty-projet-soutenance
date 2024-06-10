@@ -10,7 +10,7 @@ const productSchema = mongoose.Schema(
     name: {
       type: String,
       required: [true, "Please add a name"],
-      trim: true,
+      trim: true, // supprime les espaces inutiles
     },
     sku: {
       type: String,
@@ -67,7 +67,7 @@ const productSchema = mongoose.Schema(
     },
   },
   {
-    timestamps: true,
+    timestamps: true, // createdAt, updatedAt
   }
 );
 

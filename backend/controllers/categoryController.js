@@ -31,6 +31,7 @@ const createCategory = asyncHandler(async (req, res) => {
 
   // Delete the categories
   const deleteCategory = asyncHandler(async (req, res) => {
+    // deleted by the category slug
     const slug = req.params.slug.toLowerCase();
     const category = await Category.findOneAndDelete({ slug: slug });
     if (!category) {

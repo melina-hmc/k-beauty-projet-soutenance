@@ -15,7 +15,7 @@ const createProduct = asyncHandler(async (req, res) => {
         regularPrice,
         price,
         color, 
-    } = req.body
+    } = req.body // product data extraction
 
     if (!name || !category || !brand || !quantity || !price || !description) {
         res.status(400);
@@ -41,9 +41,9 @@ const createProduct = asyncHandler(async (req, res) => {
 
 // Get Products
 const getProducts = asyncHandler(async (req, res) => {
+    // récupère tous les produits et les trie par ordre décroissant de createdAt
     const products = await Product.find().sort("-createdAt")
     res.status(200).json(products);
-
 });
 
 // Get Single Product
@@ -57,7 +57,6 @@ const getProduct = asyncHandler(async (req, res) => {
 });
 
 // delete product
-
 const deleteProduct = asyncHandler(async (req, res) => {
     const product = await Product.findById(req.params.id)
     if (!product) {
@@ -69,7 +68,6 @@ const deleteProduct = asyncHandler(async (req, res) => {
 })
 
 // update product
-
 const updateProduct = asyncHandler(async (req, res) => {
     const { 
         name,
@@ -81,7 +79,7 @@ const updateProduct = asyncHandler(async (req, res) => {
         regularPrice,
         price,
         color, 
-    } = req.body;
+    } = req.body; // extract new data
 
     const product = await Product.findById(req.params.id)
     if (!product) {
@@ -89,7 +87,7 @@ const updateProduct = asyncHandler(async (req, res) => {
         throw new Error("Produit non trouvé")
     }
 
-    // Now, update the product
+    // Now, update the product with the new data
     const updatedProduct = await Product.findByIdAndUpdate(
         { _id: req.params.id},
         {
@@ -104,8 +102,8 @@ const updateProduct = asyncHandler(async (req, res) => {
             color, 
         },
         {
-            new: true,
-            runValidators: true,
+            new: true, // return updated document
+            runValidators: true, // valider les champs du schéma pendant la mise à jour
         }
     )
     res.status(200).json(updatedProduct);
@@ -128,15 +126,11 @@ const reviewProduct = asyncHandler(async (req, res) => {
   
     // if product doesnt exist
     if (!product) {
-      res.status(400);
-      throw new Error("Produit non trouvé");
-    }
-    if (!product) {
       res.status(404);
       throw new Error("Produit non trouvé");
     }
   
-    // Update rating
+    // if product exist, add/update rating
     product.ratings.push({
       star,
       review,
@@ -160,6 +154,7 @@ const reviewProduct = asyncHandler(async (req, res) => {
       throw new Error("Product not found");
     }
   
+    // filter product reviews to remove userID reviews
     const newRatings = product.ratings.filter((rating) => {
       return rating.userID.toString() !== userID.toString();
     });

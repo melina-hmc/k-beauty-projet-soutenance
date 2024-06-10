@@ -30,6 +30,7 @@
   
   .content {
     position: absolute;
+    border-radius: 10px;
     text-align: center;
     top: 23rem;
     left: 50%;
@@ -79,7 +80,6 @@
     opacity: 1;
   }
   .arrow {
-    border: 2px solid orangered;
     border-radius: 50%;
     background: transparent;
     color: #fff;
@@ -98,11 +98,9 @@
   
   .next {
     right: 1.5rem;
-    color: orangered;
   }
   .prev {
     left: 1.5rem;
-    color: orangered;
   }
   
   hr {

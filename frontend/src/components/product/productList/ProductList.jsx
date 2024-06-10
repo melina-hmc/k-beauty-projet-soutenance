@@ -47,11 +47,11 @@ function ProductList({products}) {
             <div className={styles.icons}>
                 <BsFillGridFill
                 size={22}
-                color="red"
+                color="purple"
                 onClick={() => setGrid(true)}
                 />
 
-                <FaListAlt size={24} color="#0066d4" 
+                <FaListAlt size={24} color="pink" 
                 onClick={() => setGrid(false)} 
                 />
 
@@ -92,11 +92,11 @@ function ProductList({products}) {
 
         <ReactPaginate
           breakLabel="..."
-          nextLabel="Next"
+          nextLabel="Suivant"
           onPageChange={handlePageClick}
           pageRangeDisplayed={3}
           pageCount={pageCount}
-          previousLabel="Prev"
+          previousLabel="Précédent"
           renderOnZeroPageCount={null}
           containerClassName="pagination"
           pageLinkClassName="page-num"

@@ -8,6 +8,7 @@ import {
 import DOMPurify from "dompurify";
 import { toast } from "react-toastify";
 import { ADD_TO_CART, saveCartDB, selectCartItems } from "../../../redux/features/cart/cartSlice";
+import { FaRegStar } from "react-icons/fa";
 
 const ProductItem = ({
 product, grid, _id, name, price, image, regularPrice
@@ -36,7 +37,7 @@ product, grid, _id, name, price, image, regularPrice
                     <span>{regularPrice > 0 && <del>{regularPrice}€</del>}</span>
                     {` ${price}€`}
                 </p>
-                <h4>Note ***</h4>
+                <h4><FaRegStar size={12}/><FaRegStar size={12}/><FaRegStar size={12}/></h4>
                 <h4>{shortenText(name, 18)}</h4>
 
                 {!grid && (

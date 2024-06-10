@@ -12,8 +12,8 @@ function PaymentOptions() {
                 <label htmlFor="Payement" className="radio-label">
                     <input type="radio" className="radio-input"
                     name="paymentMethod"
-                    id="stripe"
-                    value={"stripe"}
+                    id="home"
+                    value={"home"}
                     onChange={(e) => setPaymentMethod(e.target.value)} />
                     <span className="custom-radio"></span>
                     Payement à la livraison

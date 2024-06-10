@@ -18,7 +18,7 @@ app.use(cookieParser());
 app.use(express.urlencoded({ extended: false}));
 app.use(
     cors({
-        origin: ["http://localhost:9000"],
+        origin: ["http://localhost:9000", "http://melinahammaci.ide.3wa.io"],
         credentials: true,
     })
 );

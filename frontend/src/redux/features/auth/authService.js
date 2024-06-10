@@ -6,7 +6,7 @@ export const API_URL = `${BACKEND_URL}/api/users/`;
 // Register User
 const register = async (userData) => {
     const response = await axios.post(API_URL + "register", userData, {
-        withCredentials: true,
+        withCredentials: true, // include cookies
     })
     return response.data
 };

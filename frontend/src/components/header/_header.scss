@@ -14,7 +14,7 @@
     .header {
       width: 100%;
       height: 8rem;
-      max-width: 1000px;
+      max-width: 1100px;
       margin: 0 auto;
       padding: 1rem;
       display: flex;
@@ -100,7 +100,8 @@
       display: none;
     }
   
-    @media screen and (max-width: 800px) {
+    @media screen and (max-width: 780px) {
+
       nav {
         display: block;
         position: absolute;
@@ -159,7 +160,7 @@
               p {
                 position: absolute;
                 top: -0.7rem;
-                left: 6.2rem;
+                left: 2rem;
                 font-size: 12px;
                 
               }
@@ -180,7 +181,6 @@
       .cart {
         display: block;
         padding: 5px 0;
-        // border-bottom: 1px solid #333;
         a {
           color: #fff;
           position: relative;
@@ -189,8 +189,8 @@
           }
           p {
             position: absolute;
-            top: -1.3rem;
-            left: 6.2rem;
+            top: -1.2rem;
+            left: 2rem;
             font-size: 12px;
             color: #fff;
           }
@@ -205,7 +205,7 @@
       .menu-icon {
         display: flex;
         > * {
-          margin-left: 2rem;
+          margin-left: 1rem;
         }
       }
     }
@@ -213,7 +213,7 @@
   
   .active {
     position: relative;
-    color: var(--color-danger);
+    color: pink;
   }
   
   .active::after {

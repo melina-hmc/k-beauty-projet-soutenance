@@ -1,32 +1,24 @@
 import React from "react";
-import {
-    BsCartCheck,
-    BsClockHistory,
-    BsFillCreditCardFill,
-  } from "react-icons/bs";
-  import { FaShippingFast } from "react-icons/fa";
+import { FaArrowRotateLeft } from "react-icons/fa6";
+import { GrDeliver } from "react-icons/gr";
+import { MdSecurity } from "react-icons/md";
 
 const data = [
     {
-      icon: <FaShippingFast size={30} color="#8cb4f5" />,
-      heading: "Livraison gratuite",
-      text: "Livraison gratuite en fonction des produits",
+      icon: <GrDeliver size={30} />,
+      heading: "Livraison",
+      text: "Bénéficiez d'une livraison standard ou express",
     },
     {
-      icon: <BsFillCreditCardFill size={30} color="#f7d272" />,
-      heading: "Payement securisé",
-      text: "Payement sécurisé",
-    },
-    {
-      icon: <BsCartCheck size={30} color="#fa82ea" />,
-      heading: "Produit de qualité",
-      text: "On met en vente que des produits testé et approuvé",
-    },
-    {
-      icon: <BsClockHistory size={30} color="#82fa9e" />,
-      heading: "24/7 Support",
-      text: "Accédez à l'assistance de notre équipe d'expert",
-    },
+        icon: <FaArrowRotateLeft size={30}/>,
+        heading: "Retours faciles",
+        text: "Retour simple et gratuit",
+        },
+            {
+              icon: <MdSecurity size={30} />,
+              heading: "Achats sécurisés",
+              text: "cryptage SSL garantit la protection de vos informations",
+            },
   ];
 
 function HomeInfo(){

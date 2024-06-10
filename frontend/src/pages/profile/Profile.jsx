@@ -120,14 +120,13 @@ const Profile = () => {
           toast.error(error.message);
         }
       };
-    console.log(profile);
+    // console.log(profile);
     return (
       <>
         <section>
           {isLoading && <Loader />}
           <div className="container">
             <PageMenu />
-            <h2>Profile</h2>
             <div className="--flex-start profile">
               <Card cardClass={"card"}>
                 {!isLoading && (
@@ -163,7 +162,7 @@ const Profile = () => {
                         />
                       </p>
                       <p>
-                        <label>Name:</label>
+                        <label>Nom:</label>
                         <input
                           type="text"
                           name="name"
@@ -183,7 +182,7 @@ const Profile = () => {
                         />
                       </p>
                       <p>
-                        <label>Phone:</label>
+                        <label>Téléphone:</label>
                         <input
                           type="text"
                           name="phone"
@@ -193,7 +192,7 @@ const Profile = () => {
                         />
                       </p>
                       <p>
-                        <label>Address:</label>
+                        <label>Adresse:</label>
                         <input
                           type="text"
                           name="address"
@@ -203,7 +202,7 @@ const Profile = () => {
                         />
                       </p>
                       <p>
-                        <label>State:</label>
+                        <label>Ville:</label>
                         <input
                           type="text"
                           name="state"
@@ -213,7 +212,7 @@ const Profile = () => {
                         />
                       </p>
                       <p>
-                        <label>Country:</label>
+                        <label>Pays:</label>
                         <input
                           type="text"
                           name="country"
@@ -223,7 +222,7 @@ const Profile = () => {
                         />
                       </p>
                       <button className="--btn --btn-primary --btn-block">
-                        Update Profile
+                        Mettre à jour le profil
                       </button>
                     </form>
                   </>
@@ -242,7 +241,7 @@ const Profile = () => {
     const username = user?.name || "...";
   
     return (
-      <span style={{ color: "#f5f5f5" }}>Hi, {shortenText(username, 9)} |</span>
+      <span style={{ color: "#f5f5f5" }}>{shortenText(username, 4)}</span>
     );
   };
 

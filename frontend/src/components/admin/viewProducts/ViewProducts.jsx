@@ -8,12 +8,10 @@ import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
 import { Link } from "react-router-dom";
 import Search from "../../search/Search"
-
 import {
   deleteProduct,
   getProducts,
 } from "../../../redux/features/product/productSlice";
-// import Search from "../../search/Search";
 import { Spinner } from "../../loader/Loader";
 import { shortenText } from "../../../utils";
 import { selectIsLoggedIn } from "../../../redux/features/auth/authSlice";
@@ -29,8 +27,7 @@ const ViewProducts = () => {
   const { products, isLoading, isError, message } = useSelector(
     (state) => state.product
   );
-//   const filteredProducts = useSelector(selectFilteredProducts);
-//   console.log(filteredProducts);
+  const filteredProducts = useSelector(selectFilteredProducts);
 
   useEffect(() => {
     if (isLoggedIn === true) {
@@ -69,11 +66,11 @@ const ViewProducts = () => {
   const itemsPerPage = 6;
   const [itemOffset, setItemOffset] = useState(0);
   const endOffset = itemOffset + itemsPerPage;
-  const currentItems = products.slice(itemOffset, endOffset);
-  const pageCount = Math.ceil(products.length / itemsPerPage);
+  const currentItems = filteredProducts.slice(itemOffset, endOffset);
+  const pageCount = Math.ceil(filteredProducts.length / itemsPerPage);
 
   const handlePageClick = (event) => {
-    const newOffset = (event.selected * itemsPerPage) % products.length;
+    const newOffset = (event.selected * itemsPerPage) % filteredProducts.length;
     setItemOffset(newOffset);
   };
   // End Pagination
@@ -87,9 +84,9 @@ const ViewProducts = () => {
       <div className="table">
         <div className="--flex-between --flex-dir-column">
           <span>
-            <h3>All Products</h3>
+            <h3>Tout les produits</h3>
             <p>
-              ~ <b>{products.length} Products Found</b>
+              ~ <b>{filteredProducts.length} Produits trouvés</b>
             </p>
           </span>
           <span>
@@ -103,17 +100,17 @@ const ViewProducts = () => {
         {isLoading && <Spinner />}
 
         <div className="table">
-          {!isLoading && products.length === 0 ? (
+          {!isLoading && filteredProducts.length === 0 ? (
             <p>-- No product found...</p>
           ) : (
             <table>
               <thead>
                 <tr>
                   <th>s/n</th>
-                  <th>Name</th>
-                  <th>Category</th>
-                  <th>Price</th>
-                  <th>Quantity</th>
+                  <th>Nom</th>
+                  <th>Catégorie</th>
+                  <th>Prix</th>
+                  <th>Quantité</th>
                   <th>Value</th>
                   <th>Action</th>
                 </tr>
@@ -164,11 +161,11 @@ const ViewProducts = () => {
         </div>
          <ReactPaginate
           breakLabel="..."
-          nextLabel="Next"
+          nextLabel="Suivant"
           onPageChange={handlePageClick}
           pageRangeDisplayed={3}
           pageCount={pageCount}
-          previousLabel="Prev"
+          previousLabel="Précédent"
           renderOnZeroPageCount={null}
           containerClassName="pagination"
           pageLinkClassName="page-num"

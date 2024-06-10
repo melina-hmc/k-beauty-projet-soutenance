@@ -88,11 +88,11 @@ function ProductFilter() {
         <h4>Prix</h4> 
 
         <div className={styles.price}>
-          <Slider
+        <Slider
             range
             marks={{
               1: `${price[0]}`,
-              1000: `${price[1]}`,
+              20: `${price[1]}`,
             }}
             min={minPrice}
             max={maxPrice}

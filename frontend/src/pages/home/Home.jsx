@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Slider from "../../components/slider/Slider";
 import HomeInfo from "./HomeInfo";
-import { productData } from "../../components/carousel/data";
+// import { productData } from "../../components/carousel/data";
 import CarouselItem from "../../components/carousel/CarouselItem";
 import ProductCarousel from "../../components/carousel/Carousel";
 import ProductCategory from "./ProductCategory";
@@ -18,7 +18,6 @@ const PageHeading = ({heading, btnText}) => {
                 {btnText}
             </button>
         </div>
-        <div className="--hr"></div>
         </>
     )
 };
@@ -75,7 +74,7 @@ function Home(){
             <Slider />
             <section>
                 <div className="container">
-                    <PageHeading heading={"Nos derniers produits"} btnText = {"Voir maintenant >"}/>
+                    <PageHeading heading={"Nos derniers produits"} btnText = {"Voir"}/>
                     <ProductCarousel products={lastestProducts}/>
                 </div>
             </section>
@@ -89,7 +88,7 @@ function Home(){
             <section>
                 <div className="container">
                     {/* <HomeInfo /> */}
-                    <PageHeading heading={"Nos produits pour les lèvres"} btnText = {"Voir maintenant >"}/>
+                    <PageHeading heading={"Nos produits pour les lèvres"} btnText = {"Voir"}/>
                     <ProductCarousel products={lipsProducts}/>
                 </div>
             </section>

@@ -171,7 +171,7 @@ function ProductDetails() {
                                 <button className="--btn --btn-danger">
                                         Ajouté en favoris
                                 </button>
-                                <div className="--underline">
+                               </div> 
                                 <p>
                                     <b>Description du produit:</b>
                                 </p>
@@ -180,8 +180,6 @@ function ProductDetails() {
                                         __html: DOMPurify.sanitize(product?.description),
                                     }}>
                                 </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </>

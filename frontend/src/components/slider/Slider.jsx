@@ -54,7 +54,7 @@ function Slider(){
                                         className="--btn --btn-primary"
                                         onClick={() => navigate("/shop")}
                                     >
-                                        Shop Now
+                                        Voir
                                     </button>
                                 </div>
                             </>

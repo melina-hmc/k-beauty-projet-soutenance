@@ -1,6 +1,7 @@
 import React from "react";
 import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 import logoImg from "../../assets/images/blacklogo.png";
+import { Link } from "react-router-dom";
 
 function FooterLinks(){
 
@@ -10,16 +11,24 @@ function FooterLinks(){
             <section className="contact-section">
                 <div className="container contact">
                     <div className="contact-icon">
-                        <FaFacebookF className="i" />
-                        <FaTwitter className="i" />
+                        <Link to="https://www.facebook.com/" target="blank">
+                            <FaFacebookF className="i" />
+                        </Link>
+                        <Link to="https://x.com/" target="blank">
+                            <FaTwitter className="i" />
+                        </Link>
                 
                     </div>
 
                     <h2>Nos réseaux sociaux</h2>
 
                     <div className="contact-icon">
+                    <Link to="https://www.instagram.com/" target="blank">
                         <FaInstagram className="i" />
+                    </Link>
+                    <Link to="https://youtube.com/" target="blank">
                         <FaYoutube className="i" />
+                    </Link>
                     </div>
 
                 </div>
@@ -33,31 +42,31 @@ function FooterLinks(){
                 </div>
 
                 <div className="footer-menu">
-                    <p className="link-heading">Features</p>
+                    <p className="link-heading">Service clientèle</p>
                     <ul className="nav-ul footer-links">
                     <li>
-                        <a href="#">Link Shortening</a>
+                        <a href="#">Mentions légales</a>
                     </li>
                     <li>
-                        <a href="#">Branded Links</a>
+                        <a href="#">Politique de confidentialité</a>
                     </li>
                     <li>
-                        <a href="#">Analytics</a>
+                        <a href="#">Politique de remboursement</a>
                     </li>
                     <li>
-                        <a href="#">Blog</a>
+                        <a href="#">FAQ</a>
                     </li>
                     </ul>
                 </div>
 
                 <div className="footer-menu">
-                    <p className="link-heading">Resources</p>
+                    <p className="link-heading">K-BEAUTY</p>
                     <ul className="nav-ul footer-links">
                     <li>
-                        <a href="#">Blog</a>
+                        <a href="#">Qui sommes-nous ?</a>
                     </li>
                     <li>
-                        <a href="#">Developer</a>
+                        <a href="#">Conditions d'utilisation</a>
                     </li>
                     <li>
                         <a href="#">Support</a>
@@ -69,17 +78,17 @@ function FooterLinks(){
                 </div>
 
                 <div className="footer-menu">
-                    <p className="link-heading">Company</p>
+                    <p className="link-heading">Info</p>
                     <ul>
                     <ul className="nav-ul footer-links">
                         <li>
-                        <a href="#">About</a>
+                        <a href="#">Recherche</a>
                         </li>
                         <li>
-                        <a href="#">Our Team</a>
+                        <a href="#">Equipe</a>
                         </li>
                         <li>
-                        <a href="#">Career</a>
+                        <a href="#">Job</a>
                         </li>
                         <li>
                         <a href="#">Contact</a>

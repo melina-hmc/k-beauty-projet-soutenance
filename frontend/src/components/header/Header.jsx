@@ -12,6 +12,7 @@ import { UserName } from "../../pages/profile/Profile";
 import { AdminOnlyLink } from "../hiddenLink/AdminOnlyRoute";
 import { FaRegUser } from "react-icons/fa";
 import { CALCULATE_TOTAL_QUANTITY, selectCartItems, selectCartTotalQuantity } from "../../redux/features/cart/cartSlice";
+import { FaRegHeart } from "react-icons/fa";
 
 export const logo = (
     <div className='logo'>
@@ -23,7 +24,7 @@ export const logo = (
     </div>
 )
 
-const activeLink = ({isActive}) => (isActive ?  `${'active'}` : "")
+const activeLink = ({isActive}) => (isActive ?  `active` : "") // change the style css when the link is active
 
 function Header(){
 
@@ -65,12 +66,12 @@ function Header(){
     const cart = (
         <span className="cart">
             <Link to={"cart"}>
-                Panier
                 <IoCartOutline size={20} />
                 <p>{cartTotalQuantity}</p>
             </Link>
         </span>
     )
+
     return (
         <header className={scrollPage ? `${"fixed"}` : null}> 
             <div className='header'>{logo}
@@ -90,13 +91,13 @@ function Header(){
                            </NavLink>
                         </li>
 
-                        <li>
                             <AdminOnlyLink>
+                        <li>
                             <NavLink to={"/admin/home"} className={activeLink}>
                                 Admin
                            </NavLink>
-                            </AdminOnlyLink>
                         </li>
+                            </AdminOnlyLink>
 
                     </ul>
 
@@ -105,7 +106,7 @@ function Header(){
 
                             <ShowOnLogin>
                             <Link to={"profile"}>
-                                <FaRegUser size={16} color="#f5f5f5"/>
+                                <FaRegUser size={16}/>
                                 <UserName />
                             </Link>
                             </ShowOnLogin>
@@ -117,11 +118,18 @@ function Header(){
                             </ShowOnLogout>
 
                             <ShowOnLogin>
+                                <Link to={"/wishlist"}>
+                                <FaRegHeart size={17}/>
+                                </Link>
+                            </ShowOnLogin>
+
+                            <ShowOnLogin>
                             <Link to={"/"} onClick={logoutUser}>
                                 <MdOutlineLogout
                                 size={17}/>
                             </Link>
                             </ShowOnLogin>
+
                         </span>
                         {cart}
                     </div>

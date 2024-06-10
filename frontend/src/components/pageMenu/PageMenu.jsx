@@ -4,7 +4,7 @@ function PageMenu() {
 
     return (
         <div>
-            <nav className="--bg-primary --p --mb">
+            <nav className="back">
                 <ul className="home-links">
                     <li>
                         <NavLink to="/profile">Profile</NavLink>

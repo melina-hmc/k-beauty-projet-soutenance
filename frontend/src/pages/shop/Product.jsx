@@ -34,9 +34,9 @@ function Product() {
             <div className={styles.content}>
                 {isLoading ? <Spinner /> : <ProductList products={products} />}
                 <div className={styles.icon} onClick={toggleFilter}>
-                    <FaCogs size={20} color="red" />
+                    <FaCogs size={20} color="pink" />
                     <p>
-                        <b>{showFilter ? "Hide Filter" : "Show Filter"}</b>
+                        <b>{showFilter ? "Masquer le filtre" : "Montrer le filtre"}</b>
                     </p>
             </div>
         </div>

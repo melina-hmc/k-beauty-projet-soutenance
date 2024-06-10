@@ -1,5 +1,6 @@
 .filter {
-  h4 {
+
+    h4 {
     margin-top: 1rem;
   }
 
@@ -12,8 +13,7 @@
     border: none;
     background-color: transparent;
     cursor: pointer;
-    // margin-bottom: 5px;
-    border-bottom: 1px solid #777;
+    border-bottom: 1px solid #000000;
   }
 
   .brand {
@@ -61,5 +61,5 @@
   bottom: 0;
   width: 2px;
   height: 100%;
-  background-color: var(--color-danger);
+  background-color: palevioletred;
 }

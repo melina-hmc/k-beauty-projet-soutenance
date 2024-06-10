@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const NotFound = () => {
+function NotFound() {
   return (
     <div className="--center-all" style={{ minHeight: "80vh" }}>
       <h2>Page Introuvable</h2>
